@@ -6,6 +6,7 @@ import '../models/student.dart';
 import '../widgets/student_card.dart';
 import 'add_student_screen.dart';
 import 'student_detail_screen.dart';
+import '../screens/stats_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -90,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   //added
+  // ignore: override_on_non_overriding_member
   Widget _buildStatsBanner() {
     final total = _filtered.length;
 
@@ -171,11 +173,22 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MIS424 — Student Records'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.bar_chart),
+            tooltip: 'Statistics Dashboard',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const StatsScreen()),
+              );
+            },
+          ), //Stat Icon
           Padding(
             padding: const EdgeInsets.only(right: 12),
             child: Center(
