@@ -8,7 +8,14 @@ import 'add_student_screen.dart';
 import 'student_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final VoidCallback onToggleTheme;
+  final bool isDarkMode;
+
+  const HomeScreen(
+    {
+      super.key,
+      required this.onToggleTheme,
+      required this.isDarkMode});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -90,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   //added
+  // ignore: override_on_non_overriding_member
   Widget _buildStatsBanner() {
     final total = _filtered.length;
 
@@ -171,11 +179,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MIS424 — Student Records'),
         actions: [
+          IconButton(
+            icon: Icon(
+              widget.isDarkMode
+              ?Icons.light_mode
+              :Icons.dark_mode,
+            ),
+            tooltip: 'Toggle Theme',
+            onPressed: widget.onToggleTheme,
+          ),
           Padding(
             padding: const EdgeInsets.only(right: 12),
             child: Center(

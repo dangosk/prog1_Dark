@@ -40,6 +40,7 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
     }
   }
 
+  @override
   void dispose() {
     _studentNumCtrl.dispose();
     _nameCtrl.dispose();
