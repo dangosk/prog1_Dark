@@ -9,7 +9,14 @@ import 'student_detail_screen.dart';
 import '../screens/stats_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final VoidCallback onToggleTheme;
+  final bool isDarkMode;
+
+  const HomeScreen(
+    {
+      super.key,
+      required this.onToggleTheme,
+      required this.isDarkMode});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -180,6 +187,14 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('MIS424 — Student Records'),
         actions: [
           IconButton(
+            icon: Icon(
+              widget.isDarkMode
+              ?Icons.light_mode
+              :Icons.dark_mode,
+            ),
+            tooltip: 'Toggle Theme',
+            onPressed: widget.onToggleTheme,
+          ),
             icon: const Icon(Icons.bar_chart),
             tooltip: 'Statistics Dashboard',
             onPressed: () {
