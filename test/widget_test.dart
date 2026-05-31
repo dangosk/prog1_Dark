@@ -15,19 +15,16 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp() as Widget);
 
-void main() {
-  testWidgets('App loads correctly',
-      (WidgetTester tester) async {
+    void main() {
+      testWidgets('App loads correctly', (WidgetTester tester) async {
+        // Build app
+        await tester.pumpWidget(const StudentRecordApp());
 
-    // Build app
-    await tester.pumpWidget(
-      const StudentRecordApp(),
-    );
-
-    // Verify app loaded
-    expect(find.byType(MaterialApp), findsOneWidget);
+        // Verify app loaded
+        expect(find.byType(MaterialApp), findsOneWidget);
+      });
+    }
   });
-}
 }
 
 class MyApp {

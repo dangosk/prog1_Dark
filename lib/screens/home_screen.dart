@@ -12,11 +12,11 @@ class HomeScreen extends StatefulWidget {
   final VoidCallback onToggleTheme;
   final bool isDarkMode;
 
-  const HomeScreen(
-    {
-      super.key,
-      required this.onToggleTheme,
-      required this.isDarkMode});
+  const HomeScreen({
+    super.key,
+    required this.onToggleTheme,
+    required this.isDarkMode,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -187,14 +187,11 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('MIS424 — Student Records'),
         actions: [
           IconButton(
-            icon: Icon(
-              widget.isDarkMode
-              ?Icons.light_mode
-              :Icons.dark_mode,
-            ),
+            icon: Icon(widget.isDarkMode ? Icons.light_mode : Icons.dark_mode),
             tooltip: 'Toggle Theme',
             onPressed: widget.onToggleTheme,
           ),
+          IconButton(
             icon: const Icon(Icons.bar_chart),
             tooltip: 'Statistics Dashboard',
             onPressed: () {
