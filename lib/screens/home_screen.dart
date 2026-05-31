@@ -6,6 +6,7 @@ import '../models/student.dart';
 import '../widgets/student_card.dart';
 import 'add_student_screen.dart';
 import 'student_detail_screen.dart';
+import '../screens/stats_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final VoidCallback onToggleTheme;
@@ -194,6 +195,15 @@ class _HomeScreenState extends State<HomeScreen> {
             tooltip: 'Toggle Theme',
             onPressed: widget.onToggleTheme,
           ),
+            icon: const Icon(Icons.bar_chart),
+            tooltip: 'Statistics Dashboard',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const StatsScreen()),
+              );
+            },
+          ), //Stat Icon
           Padding(
             padding: const EdgeInsets.only(right: 12),
             child: Center(

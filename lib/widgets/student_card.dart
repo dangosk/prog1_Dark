@@ -65,6 +65,7 @@ class StudentCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
               decoration: BoxDecoration(
                 color: _gpaColor(student.gpa).withValues(alpha: .15),
+                color: _gpaColor(student.gpa).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(3),
                 border: Border.all(color: _gpaColor(student.gpa), width: 0.8),
               ),

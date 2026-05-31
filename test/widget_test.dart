@@ -10,6 +10,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:student_record_app/main.dart';
 
+void main() {
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp() as Widget);
 
 void main() {
   testWidgets('App loads correctly',
@@ -23,4 +27,9 @@ void main() {
     // Verify app loaded
     expect(find.byType(MaterialApp), findsOneWidget);
   });
+}
+}
+
+class MyApp {
+  const MyApp();
 }
